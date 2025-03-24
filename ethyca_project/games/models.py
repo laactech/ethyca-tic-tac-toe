@@ -1,10 +1,11 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 
 from ethyca_project.core.mixins import BaseModel
 from ethyca_project.games.enums import GameTypeChoices
-from django.contrib.auth import get_user_model
 
 User = get_user_model()
+
 
 class Game(BaseModel):
     game_type = models.CharField(choices=GameTypeChoices.choices, max_length=50)
@@ -14,7 +15,7 @@ class GameMove(BaseModel):
     game = models.ForeignKey(Game, on_delete=models.CASCADE, related_name="game_moves")
     game_state = models.JSONField()
     player = models.ForeignKey(User, on_delete=models.CASCADE, related_name="game_moves")
-    
+
     def clean(self):
         if not isinstance(self.game_state, (list, tuple)):
             raise ValueError("game_state must be a list or tuple")

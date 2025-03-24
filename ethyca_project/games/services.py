@@ -2,7 +2,7 @@ import random
 
 
 def get_default_tic_tac_toe_state() -> list[list[str]]:
-    return [[".", ".", "."],[".", ".", "."],[".", ".", "."]]
+    return [[".", ".", "."], [".", ".", "."], [".", ".", "."]]
 
 
 def place_random_o(tic_tac_toe: list[list[str]]) -> list[list[str]]:
@@ -11,7 +11,7 @@ def place_random_o(tic_tac_toe: list[list[str]]) -> list[list[str]]:
     if not empty_positions:
         return tic_tac_toe
 
-    row, col = random.choice(empty_positions)
+    row, col = random.choice(empty_positions)  # noqa: S311
     tic_tac_toe[row][col] = "o"
 
     return tic_tac_toe

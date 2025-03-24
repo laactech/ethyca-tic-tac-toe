@@ -1,5 +1,4 @@
 import getpass
-import sys
 
 from django.core.management.base import BaseCommand
 from django.db import transaction
@@ -21,4 +20,4 @@ class Command(BaseCommand):
                 user_full_name=name,
             )
             token = Token.objects.create(user=user)
-            print(f"Your API token: {token.key}")
+            print(f"Your API token: {token.key}")  # noqa: T201

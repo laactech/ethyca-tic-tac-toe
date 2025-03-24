@@ -17,5 +17,3 @@
 
 1. Why does this project have celery, redis, rabbitmq, etc?
    * This is a template I use for a lot of projects to get them going fast, and I just decided not to remove them.
-
-

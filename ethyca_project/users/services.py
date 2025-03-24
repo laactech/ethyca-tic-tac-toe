@@ -3,7 +3,6 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.hashers import make_password
 from django.db import transaction
 
-
 User = get_user_model()
 
 
@@ -17,7 +16,7 @@ def create_new_user(
 ) -> tuple[User, EmailAddress]:
     with transaction.atomic():
         if password is None:
-            password = "password"
+            password = "password"  # noqa: S105
         kwargs = {
             "password": make_password(password),
             "email": email,

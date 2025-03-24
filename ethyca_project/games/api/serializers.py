@@ -1,7 +1,9 @@
 from rest_framework import serializers
 
-from ethyca_project.games.models import Game, GameMove
-from ethyca_project.games.services import get_default_tic_tac_toe_state, place_random_o
+from ethyca_project.games.models import Game
+from ethyca_project.games.models import GameMove
+from ethyca_project.games.services import get_default_tic_tac_toe_state
+from ethyca_project.games.services import place_random_o
 
 
 class GameSerializer(serializers.ModelSerializer):
@@ -45,7 +47,7 @@ class GameMoveSerializer(serializers.ModelSerializer):
         except GameMove.DoesNotExist:
             latest_game_state = get_default_tic_tac_toe_state()
 
-        if not "x" in next_move.keys() or not "y" in next_move.keys():
+        if "x" not in next_move or "y" not in next_move:
             raise serializers.ValidationError("next_move must contain both 'x' and 'y'")
 
         next_move_x = next_move["x"]

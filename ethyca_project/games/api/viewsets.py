@@ -1,7 +1,10 @@
 from rest_framework import viewsets
 from rest_framework.filters import OrderingFilter
-from ethyca_project.games.api.serializers import GameMoveSerializer, GameSerializer
-from ethyca_project.games.models import GameMove, Game
+
+from ethyca_project.games.api.serializers import GameMoveSerializer
+from ethyca_project.games.api.serializers import GameSerializer
+from ethyca_project.games.models import Game
+from ethyca_project.games.models import GameMove
 
 
 class GameMoveViewSet(viewsets.ModelViewSet):
