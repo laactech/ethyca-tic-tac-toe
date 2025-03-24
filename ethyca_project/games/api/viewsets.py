@@ -1,5 +1,7 @@
 from rest_framework import viewsets
+from rest_framework.decorators import action
 from rest_framework.filters import OrderingFilter
+from rest_framework.response import Response
 
 from ethyca_project.games.api.serializers import GameMoveSerializer
 from ethyca_project.games.api.serializers import GameSerializer
@@ -24,3 +26,9 @@ class GameViewSet(viewsets.ModelViewSet):
     ordering_fields = ["created_at"]
     filter_backends = [OrderingFilter]
     ordering = ["-created_at"]
+
+    @action(detail=False, methods=["get"], url_path="my-games")
+    def my_games(self, request, pk=None):
+        games = Game.objects.filter(game_moves__player=request.user).order_by("-created_at").distinct()
+        serializer = GameSerializer(games, many=True)
+        return Response(serializer.data)

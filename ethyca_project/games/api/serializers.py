@@ -9,14 +9,14 @@ from ethyca_project.games.services import place_random_o
 class GameSerializer(serializers.ModelSerializer):
     class Meta:
         model = Game
-        fields = ("game_type", "id")
+        fields = ("game_type", "id", "created_at")
 
 
 class GameMoveSerializer(serializers.ModelSerializer):
     class Meta:
         model = GameMove
-        fields = ("game", "game_state", "next_move")
-        read_only_fields = ("game_state",)
+        fields = ("game", "game_state", "next_move", "created_at")
+        read_only_fields = ("game_state", "created_at")
 
     next_move = serializers.DictField(write_only=True)
 
