@@ -67,7 +67,6 @@ DJANGO_APPS = [
     "django.contrib.sites",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    # "django.contrib.humanize", # Handy template tags
     "django.contrib.admin",
     "django.forms",
 ]
@@ -85,6 +84,7 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     "ethyca_project.users",
+    "ethyca_project.games",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -338,8 +338,8 @@ REST_FRAMEWORK = {
 # By Default swagger ui is available only to admin user(s). You can change permission classes to change that
 # See more configuration options at https://drf-spectacular.readthedocs.io/en/latest/settings.html#settings
 SPECTACULAR_SETTINGS = {
-    "TITLE": "clarity project API",
-    "DESCRIPTION": "Documentation of API endpoints of clarity project",
+    "TITLE": "ethyca project API",
+    "DESCRIPTION": "Documentation of API endpoints of ethyca project",
     "VERSION": "1.0.0",
     "SERVE_PERMISSIONS": ["rest_framework.permissions.AllowAny"],
     "SCHEMA_PATH_PREFIX": "/api/",

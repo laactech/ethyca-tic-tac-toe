@@ -16,9 +16,6 @@ x-env:
   - DATABASE_URL=postgres://ethyca_app:password@postgres:5432/ethyca_app
   - USE_DOCKER=yes
   - PYTHONPATH=/code
-x-env-files:
-  &local-env-file
-  - .env
 
 services:
   django: &django
@@ -40,7 +37,6 @@ services:
     volumes:
       - .:/code
     environment: *local-env
-    env_file: *local-env-file
   celeryworker:
     <<: *django
     image: ethyca_app_local_celeryworker

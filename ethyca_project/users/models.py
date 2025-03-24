@@ -11,7 +11,7 @@ from .managers import UserManager
 
 class User(AbstractUser):
     """
-    Default custom user model for clarity project.
+    Default custom user model for ethyca project.
     If adding fields that need to be filled at user signup,
     check forms.SignupForm and forms.SocialSignupForms accordingly.
     """

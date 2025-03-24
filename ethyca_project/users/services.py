@@ -1,8 +1,10 @@
 from allauth.account.models import EmailAddress
+from django.contrib.auth import get_user_model
 from django.contrib.auth.hashers import make_password
 from django.db import transaction
 
-from ethyca_project.applications.models import User
+
+User = get_user_model()
 
 
 def create_new_user(
